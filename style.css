@@ -1,8 +1,0 @@
-@import "tailwindcss";
-#listId li{
-    background-color: gray;
-    color: whitesmoke;
-    padding: 5px;
-    margin: 8px 0;
-    border-radius: 5px;
-}
