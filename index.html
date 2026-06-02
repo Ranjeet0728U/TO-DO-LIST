@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-blue-900 text-white">
+
+    <div class="grid grid-cols-12">
+
+        <div class="bg-green-700 col-span-4 col-start-5 my-10">
+            <div class="text-4xl text-center bg-gray-700">TO DO LIST</div>
+            <div class="flex flex-col items-center ">
+                <input 
+                    type="text" 
+                    name="input" 
+                    placeholder="Enter Details" 
+                    class="bg-white text-black block my-3 h-10 w-80 px-3 rounded-md"
+                    id = "Input"
+                >
+                <button class="bg-gray-400 w-20 my-3 rounded-md" id="button">Enter</button>
+            </div>
+        </div>
+    </div>
+
+    <!--OUTPUT SECTION-->
+    <div class="grid grid-cols-12">
+        
+        <div class="col-span-4 col-start-5 bg-sky-600 m-4 flex flex-col items-center">
+            <div class="text-center text-3xl my-1 bg-blue-600 p-3"> The List of Your TO do</div>
+            <ol
+                id="listId"
+                class="p-10 list-decimal text-2xl"
+            >
+            </ol>
+        </div>
+    </div>
+</body>
+<script>
+    const InputRef = document.getElementById("Input");
+    const ButtonRef = document.getElementById("button");
+    const OutPutRef = document.getElementById("listId");
+    ButtonRef.addEventListener('click',fn);
+    InputRef.addEventListener('keydown',fn2);
+    function fn2(event){
+        if(event.key === 'Enter'){
+            fn();
+        }
+    }
+
+    function fn(){
+        const value = InputRef.value;
+        const liTag = document.createElement('li');
+        liTag.innerHTML = ('')
+        liTag.innerText = value;
+        OutPutRef.appendChild(liTag);
+        InputRef.value = '';
+    }
+</script>
+</html>
